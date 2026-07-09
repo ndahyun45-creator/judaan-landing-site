@@ -1,0 +1,947 @@
+<!DOCTYPE html><html class="scroll-smooth stitch-anim-fade-in" lang="ja" style="">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Judaan | 海の力で、家族にやすらぎを。</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#241a0e",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#b7ccb5",
+                    "surface": "#fcf9f4",
+                    "surface-container": "#f0ede9",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#fdddb9",
+                    "outline": "#747872",
+                    "secondary-container": "#fdddb9",
+                    "surface-tint": "#506350",
+                    "inverse-primary": "#b7ccb5",
+                    "tertiary": "#6b5c4c",
+                    "on-surface-variant": "#434842",
+                    "surface-container-high": "#ebe8e3",
+                    "on-secondary-fixed": "#281803",
+                    "outline-variant": "#c3c8c0",
+                    "surface-variant": "#e5e2dd",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#786044",
+                    "tertiary-container": "#baa795",
+                    "surface-bright": "#fcf9f4",
+                    "primary-container": "#9bb09a",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "tertiary-fixed-dim": "#d7c3b0",
+                    "background": "#fcf9f4",
+                    "on-secondary-fixed-variant": "#584329",
+                    "on-primary-fixed-variant": "#394b3a",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#d3e8d0",
+                    "secondary": "#715a3e",
+                    "on-background": "#1c1c19",
+                    "tertiary-fixed": "#f4dfcb",
+                    "surface-container-low": "#f6f3ee",
+                    "inverse-surface": "#31302d",
+                    "inverse-on-surface": "#f3f0eb",
+                    "on-tertiary-fixed-variant": "#524436",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#0e1f11",
+                    "primary": "#506350",
+                    "on-tertiary-container": "#4a3c2e",
+                    "surface-dim": "#dcdad5",
+                    "surface-container-highest": "#e5e2dd",
+                    "on-primary-container": "#314332",
+                    "secondary-fixed-dim": "#e0c29f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Plus Jakarta Sans", "Noto Sans JP", "sans-serif"],
+                    "headline-lg-mobile": ["Noto Serif JP", "serif"],
+                    "headline-xl": ["Noto Serif JP", "serif"],
+                    "headline-lg": ["Noto Serif JP", "serif"],
+                    "body-lg": ["Plus Jakarta Sans", "Noto Sans JP", "sans-serif"],
+                    "label-md": ["Plus Jakarta Sans", "Noto Sans JP", "sans-serif"],
+                    "headline-md": ["Noto Serif JP", "serif"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Header Navigation -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-md transition-all duration-300 py-2 shadow-sm bg-white/95">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<div class="h-10 w-auto flex items-center"><img alt="Judaan House Icon" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtGnbp-_P9A1TBm-kq5wbDub_Lrv1IPOSJw0iWj9nKUNAaC0DfLxbOcvhZ1MIWyNMvkTULOCCTDdtOqvPksIn4Lqtui76JUGkS1acKBOTIk3sxQqkNKmEFc1NxnEZriHjmzBa3Q4OyiIbAXxmtPEc3saxlRSFwC-RXzw3k2tlPOy0pFCPNjVum-iErabqA4cq8UdrhBVwTb8F8nFne28DW5Wyf797JfjdI9Jl9Isn8CIg4n3_Bcj-sQR55kxJmc9jTtw"><img alt="Judaan Logo" class="h-6 w-auto object-contain ml-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJcbc0QLvQzG9JQup94J4Ap4jOFy2zw5YhbxUZQKg0HT04ezhBzWeyQNAqjUfs4qD8GB2EzCv16nOoPGF0I6tvu5m_0VJhZn-i7-m-cH8ImH3MsqJ294SoaPja_QimOFCJCKZOlNoGGF71qJ3dU7HfosDwWFxHT7Gczhcy2Z-pByeDkGj_yY_FOn-emhXDU6hE9RxB1t9AfILRGDyFsNkg977pwSd5Iu44SVVe0UzNLdRzXKYLjEc0tV783wvCdukYmw"></div></div>
+</div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative h-[60vh] md:h-[75vh] flex items-center justify-center overflow-hidden px-margin-mobile opacity-0 fade-in">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black/10 z-10"></div>
+<div id="hero-bg" class="w-full h-full bg-cover bg-center transition-transform duration-[10s] scale-110 hover:scale-100" style="background-image: url(&quot;이미지/hero/hero.jpg&quot;);"></div>
+</div>
+<div class="relative z-20 text-center fade-in">
+<h1 class="font-headline-xl text-headline-md md:text-headline-xl text-white mb-6 drop-shadow-lg">
+                    海の力で、家族にやすらぎを。
+                </h1>
+<p class="text-[14px] md:text-body-lg text-white/90 max-w-lg mx-auto leading-relaxed">父としての想いが込められた、本物の真心。</p>
+<div class="mt-10"></div>
+</div>
+</section>
+<section class="py-24 bg-surface px-margin-mobile opacity-0 fade-in" id="products">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile text-primary">PRODUCTS</h2>
+<p class="text-on-surface-variant">家族みんなで使える、誠実なラインナップ</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Product 1 -->
+<div class="group">
+<div class="relative aspect-[3/4] bg-white rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow">
+<div class="absolute top-3 left-3 z-10">
+<span class="bg-primary/10 text-primary text-[10px] font-label-md px-2 py-1 rounded-full uppercase">Best Seller</span>
+</div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBwSDoVBTRjoSelPF5V4p_b9wammfpxf1tUG_3f5puJTYDSEtNbQlrrFovusfXbMpUwBfFvv8GSd3JoGTU0hU9-14tlcr7DxdLQ6gRK34dj7yxMR05JvjCyTQ7Umn0W8Rd8UzKUrVd5GXJQB4H-VPlDS5dnKVR7ARcy4ITTdOg1WGeB872A4HtxYPjuEKxmEbWxtQjggy_HHn8hZ5D2MOFuqRYpw2Sx3sdrvs_eIyGcx4RP1CXIkKeIJd8UytPL7qAInw&quot;);"></div>
+</div>
+<h3 class="font-body-md text-on-surface mb-1">しっかりバリア 保湿ミルク</h3>
+<p class="text-xs text-on-surface-variant mb-2">300ml / Barrier Moisturizing</p>
+<p class="font-body-lg text-secondary">¥3,500 <span class="text-[10px] text-outline">(税込)</span></p>
+</div>
+<!-- Product 2 -->
+<div class="group">
+<div class="relative aspect-[3/4] bg-white rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow">
+<div class="absolute top-3 left-3 z-10">
+<span class="bg-tertiary-container/20 text-tertiary text-[10px] font-label-md px-2 py-1 rounded-full uppercase">New</span>
+</div>
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB5GbeXwPLtcT9v5xDXb0cQhSLXJa9C2aWsqTcByme7e8jTIeVZWmdbkveuugpXFanuCIaYV04joaGHTbFDEKgBDGqMwqY1hh6fwLf6A1XimcboX576wJKi-FZ15jfyux_uE1xM39R8DAUb0noGGpbZanQeJupsfYluDXq0BQTXmIf83wcdm7A6i0DQ9Iko9o6yrGeRAFHP9evET2vl46NeL3WExwvVa7aG2A7rrnOYWbflBCidOtBHMoBG0HKqMjobtQ&quot;);"></div>
+</div>
+<h3 class="font-body-md text-on-surface mb-1">モイスト ヒーリング カーミングジェル</h3>
+<p class="text-xs text-on-surface-variant mb-2">300ml / Soothing Gel</p>
+<p class="font-body-lg text-secondary">¥3,200 <span class="text-[10px] text-outline">(税込)</span></p>
+</div>
+<!-- Product 4 -->
+<div class="group">
+<div class="relative aspect-[3/4] bg-white rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuC97o_i6yoneDrgOpLM4p-L7GBIzHBP0VOVLD5MzTD4Zge5VdeEt5YKIYQVB9OqYrfnd17BQ5TQMGsxkVTy1ol1zMzYU1BG4z62ZSTU96qKMdvP2PvbESGXlOogCTeK6d-455KBMnpMwXb9vB_lH3hErcjYhFRDmfdxdLGFT9Qclnx9QDgDKMgmSNpnelu6zxmxAhBYmGn-C0w7t9C1eaXWP5G_6POENelVy3diyimjFGsixcPKMixkTTNzy5iUQRzI1w&quot;);"></div>
+</div>
+<h3 class="font-body-md text-on-surface mb-1">ブリージング オールインワン ボディソープ</h3>
+<p class="text-xs text-on-surface-variant mb-2">500ml / All-in-one</p>
+<p class="font-body-lg text-secondary">¥3,800 <span class="text-[10px] text-outline">(税込)</span></p>
+</div>
+</div>
+</div>
+</section>
+<!-- Ingredient Section -->
+<section class="py-24 bg-white opacity-0 fade-in">
+<div class="max-w-container-max mx-auto px-margin-mobile text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">海からの贈り物</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">済州島の清らかな海で育った「カンテ（カジメ）」から抽出された成分。その豊かな生命力が、ゆらぎがちな家族の肌に「しっかりとしたバリア」を築きます。</p>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-primary/20 -translate-y-1/2 z-0"></div>
+<div class="relative z-10 flex flex-col items-center group">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl">eco</span>
+</div>
+<span class="text-xs font-label-md text-outline mb-2">STEP 01</span>
+<h4 class="font-bold text-sm">原料準備</h4>
+<p class="text-[10px] text-on-surface-variant mt-2 px-2 leading-tight">最上の原料のみを厳選</p>
+</div>
+<div class="relative z-10 flex flex-col items-center group">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl">ac_unit</span>
+</div>
+<span class="text-xs font-label-md text-outline mb-2">STEP 02</span>
+<h4 class="font-bold text-sm">凍結乾燥</h4>
+<p class="text-[10px] text-on-surface-variant mt-2 px-2 leading-tight">-40℃以下、48hr水分を完全に乾燥</p>
+</div>
+<div class="relative z-10 flex flex-col items-center group">
+<div class="w-20 h-20 bg-primary-container/20 rounded-full flex items-center justify-center mb-4 border-2 border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl">cyclone</span>
+</div>
+<span class="text-xs font-label-md text-primary mb-2">STEP 03</span>
+<h4 class="font-bold text-sm">グラインディング</h4>
+<p class="text-[10px] text-on-surface-variant mt-2 px-2 leading-tight">微細な粒子にするため高速回転粉砕</p>
+</div>
+<div class="relative z-10 flex flex-col items-center group">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl">waves</span>
+</div>
+<span class="text-xs font-label-md text-outline mb-2">STEP 04</span>
+<h4 class="font-bold text-sm">超音波抽出</h4>
+<p class="text-[10px] text-on-surface-variant mt-2 px-2 leading-tight">最大 28KHzの超音波を使用して抽出</p>
+</div>
+<div class="relative z-10 flex flex-col items-center group">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-3xl">filter_alt</span>
+</div>
+<span class="text-xs font-label-md text-outline mb-2">STEP 05</span>
+<h4 class="font-bold text-sm">精製および濾過</h4>
+<p class="text-[10px] text-on-surface-variant mt-2 px-2 leading-tight">不純物の精製および濾過</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Section -->
+<section class="py-16 border-y border-outline-variant bg-white overflow-x-auto no-scrollbar opacity-0 fade-in">
+<div class="max-w-container-max mx-auto px-margin-mobile flex items-center justify-between min-w-[800px] gap-8">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary text-4xl">verified_user</span>
+<span class="text-[10px] font-label-md text-secondary">CPNP 認証済み</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary text-4xl">medical_services</span>
+<span class="text-[10px] font-label-md text-secondary">MoCRA 登録済</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary text-4xl">child_care</span>
+<span class="text-[10px] font-label-md text-secondary uppercase">小児科医テスト済み</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary text-4xl">relax</span>
+<span class="text-[10px] font-label-md text-secondary">低刺激処方</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary text-4xl">biotech</span>
+<span class="text-[10px] font-label-md text-secondary">皮膚科学的テスト済み</span>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="py-24 bg-surface-container opacity-0 fade-in overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-mobile">
+<div class="flex justify-between items-center mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile text-primary">VOICE OF FAMILIES</h2>
+<button class="flex items-center gap-1 text-sm text-primary font-label-md shrink-0" id="openAllReviews" type="button">
+more
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+<div class="relative">
+<div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-gutter pb-8 -mx-margin-mobile px-margin-mobile">
+<!-- Review 1 -->
+<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
+<div class="aspect-square w-full overflow-hidden">
+<img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_01.jpg">
+</div>
+<div class="p-6">
+<div class="flex text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed text-sm mb-4">
+                            「赤ちゃん用の日焼け止めを探して、やっとこれに落ち着きました(笑)。ジェルローションと一緒に使っているんですが、しっとり感が長持ちする感じがします。」
+                        </p>
+<div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
+<span>최**** ・ 2026-03-01</span>
+</div>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">オールデイ オールセーフ サンクリーム</p>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
+<div class="aspect-square w-full overflow-hidden">
+<img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_02.jpg">
+</div>
+<div class="p-6">
+<div class="flex text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed text-sm mb-4">
+                            「低刺激ローション、本当におすすめです!新生児のころからずっと使っていますが、今まで肌トラブルなく快適に使えています〜。優しいローションを探している方にはぴったりだと思います!」
+                        </p>
+<div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
+<span>이**** ・ 2026-03-10</span>
+</div>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">ハードバリア保湿ローション 300ml</p>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
+<div class="aspect-square w-full overflow-hidden">
+<img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_03.jpg">
+</div>
+<div class="p-6">
+<div class="flex text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed text-sm mb-4">
+                            「泡タイプだから楽です。今までジェルばかり使っていたけど、なんでジェルを使ってたんだろう...って思うくらい(笑)。楽だし、お風呂がほぼ3分で終わります。」
+                        </p>
+<div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
+<span>이**** ・ 2026-01-30</span>
+</div>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">ブリージング オールインワン フォーミングウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<!-- Review 4 -->
+<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
+<div class="aspect-square w-full overflow-hidden">
+<img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_04.jpg">
+</div>
+<div class="p-6">
+<div class="flex text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed text-sm mb-4">
+                            「オールインワンだから楽です!シャンプーから体まで一本で洗えて、泡タイプなので子どものお風呂が超スピードで終わります(笑)。子どもがぐずり始める前に終わるので、お互いにとって助かります。」
+                        </p>
+<div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
+<span>박**** ・ 2026-01-22</span>
+</div>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">ウォッシュ&ローション デュアルケアセット</p>
+</div>
+</div>
+</div>
+<!-- Review 5 -->
+<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
+<div class="aspect-square w-full overflow-hidden">
+<img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_05.jpg">
+</div>
+<div class="p-6">
+<div class="flex text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed text-sm mb-4">
+                            「冬になって子どもたちの肌がとても乾燥していたんですが、ジュダアンを塗ったらつやつやの潤い肌になりました。子どもたちも「やわらかい」と気に入っているみたいです。これからもずっと使い続けたいと思います^^」
+                        </p>
+<div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
+<span>네**** ・ 2025-12-23</span>
+</div>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">デイリーベビーケア 4種ギフトセット</p>
+</div>
+</div>
+</div>
+<!-- Review 6 -->
+<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
+<div class="aspect-square w-full overflow-hidden">
+<img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_06.jpg">
+</div>
+<div class="p-6">
+<div class="flex text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed text-sm mb-4">
+                            「下の子が貨幣状湿疹があって使っているんですが、完全になくなったわけではないものの、保湿力は本当に最高です。」
+                        </p>
+<div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
+<span>rlag***** ・ 2026.04.10</span>
+</div>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">赤ちゃん ガムテ ローション 300ml</p>
+</div>
+</div>
+</div>
+<!-- Review 7 -->
+<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
+<div class="aspect-square w-full overflow-hidden">
+<img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_07.jpg">
+</div>
+<div class="p-6">
+<div class="flex text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed text-sm mb-4">
+                            「泡がきめ細かくてもちもちしていて、すごく良かったです!!赤ちゃんの頭に泡を乗せたまま体を洗っても泡が流れ落ちないので、目にしみないか焦って急いで洗い流さなくても大丈夫です!」
+                        </p>
+<div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
+<span>224w***** ・ 2026.03.13</span>
+</div>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">新生児 ガムテ ボディウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<!-- Review 8 -->
+<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
+<div class="aspect-square w-full overflow-hidden">
+<img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_08.jpg">
+</div>
+<div class="p-6">
+<div class="flex text-primary text-xs mb-3">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+</div>
+<p class="text-on-surface-variant italic leading-relaxed text-sm mb-4">
+                            「きめ細かい泡で子どもを洗うのがすごく楽です(笑)。それに、洗っている最中に子どもが泡を口に入れてしまうこともあるんですが、成分が優しいので安心できます(笑)。」
+                        </p>
+<div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
+<span>summ***** ・ 2026.03.09</span>
+</div>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">新生児 ガムテ ボディウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center gap-2 mt-4">
+<div class="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- All Reviews Modal -->
+<div class="fixed inset-0 z-50 hidden" id="allReviewsModal">
+<div class="absolute inset-0 bg-black/40" id="allReviewsBackdrop"></div>
+<div class="absolute inset-0 top-8 md:top-16 bg-surface rounded-t-2xl overflow-y-auto">
+<div class="sticky top-0 bg-surface/95 backdrop-blur-md z-10 flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 border-b border-outline-variant">
+<h3 class="font-headline-md text-on-surface">お客様の声(全20件)</h3>
+<button aria-label="close" class="text-on-surface-variant" id="closeAllReviews" type="button">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<h4 class="font-label-md text-primary tracking-widest uppercase mb-4">公式モール(judaan.com)レビュー</h4>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-16">
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_01.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「しっとり感が長持ちする」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">赤ちゃん用の日焼け止めを探して、やっとこれに落ち着きました(笑)。ジェルローションと一緒に使っているんですが、しっとり感が長持ちする感じがします。</p>
+<p class="text-[10px] text-outline mb-2">최**** ・ 2026-03-01</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_01.jpg"></div>
+<p class="text-[10px] text-primary truncate">オールデイオールセーフサンクリーム 60ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_02.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「低刺激ローション」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">低刺激ローション、本当におすすめです!新生児のころからずっと使っていますが、今まで肌トラブルなく快適に使えています〜。優しいローションを探している方にはぴったりだと思います!</p>
+<p class="text-[10px] text-outline mb-2">이**** ・ 2026-03-10</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_02.jpg"></div>
+<p class="text-[10px] text-primary truncate">ハードバリア保湿ローション 300ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_03.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「スッと肌に浸透する」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">ジュダアンのカーミングジェル、本当に良いです!!!届いた瞬間からパッケージのクオリティに満足しました。使ってすぐにひんやりとしたクール感と肌が落ち着いていく感じが伝わってきて、とても満足しながら毎日使っています。ジェルタイプなのにベタつかずスッと肌に浸透するので満足です!リピート購入したいと思います。</p>
+<p class="text-[10px] text-outline mb-2">윤**** ・ 2026-03-07</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_03.jpg"></div>
+<p class="text-[10px] text-primary truncate">モイストヒーリングカーミングジェル 300ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_04.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「しっとり感が長続きします」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">しっとり感が長続きします^^* 赤ちゃんの頬がよく乾燥していたんですが、このローションを塗ってからかなり良くなりました〜。しっとり感がずっと続きますよ!</p>
+<p class="text-[10px] text-outline mb-2">우**** ・ 2026-03-10</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_04.jpg"></div>
+<p class="text-[10px] text-primary truncate">ハードバリア保湿ローション 300ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_05.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「お風呂がほぼ3分で終わります」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">泡タイプだから楽です。今までジェルばかり使っていたけど、なんでジェルを使ってたんだろう...って思うくらい(笑)。楽だし、お風呂がほぼ3分で終わります。</p>
+<p class="text-[10px] text-outline mb-2">이**** ・ 2026-01-30</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_05.jpg"></div>
+<p class="text-[10px] text-primary truncate">ブリージングオールインワンフォーミングウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_06.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「肌に優しい」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">肌に優しいので、どんな赤ちゃんの肌にも合いそうです。うちの子は肌がかなり敏感なほうですが、トラブルもなく、お風呂の後にヒリヒリすることもありません。シャンプーとボディソープを別々に用意しなくていいので楽です。</p>
+<p class="text-[10px] text-outline mb-2">한**** ・ 2026-01-30</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_06.jpg"></div>
+<p class="text-[10px] text-primary truncate">ブリージングオールインワンフォーミングウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_07.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「オールインワンだから楽」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">オールインワンだから楽です!シャンプーから体まで一本で洗えて、泡タイプなので子どものお風呂が超スピードで終わります(笑)。子どもがぐずり始める前に終わるので、お互いにとって助かります。</p>
+<p class="text-[10px] text-outline mb-2">박**** ・ 2026-01-22</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_07.jpg"></div>
+<p class="text-[10px] text-primary truncate">ウォッシュ&ローションデュアルケアセット</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_08.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「天然の香り」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">香りが良くてついつい手が伸びます。香り付きは初めてでしたが、赤ちゃんと一緒に香りを楽しんだり、泡で感覚遊びもできて楽しいです!天然の香りがついているとは思わなかったので、満足しています^^</p>
+<p class="text-[10px] text-outline mb-2">김**** ・ 2026-01-09</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_08.jpg"></div>
+<p class="text-[10px] text-primary truncate">ブリージングオールインワンフォーミングウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_09.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「つやつやの潤い肌」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">冬になって子どもたちの肌がとても乾燥していたんですが、ジュダアンを塗ったらつやつやの潤い肌になりました。子どもたちも「やわらかい」と気に入っているみたいです。これからもずっと使い続けたいと思います^^</p>
+<p class="text-[10px] text-outline mb-2">네**** ・ 2025-12-23</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_09.jpg"></div>
+<p class="text-[10px] text-primary truncate">デイリーベビーケア4種ギフトセット</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_10.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「白浮きしない」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">白浮きしないのが嬉しいです^^ 子どもと一緒に使おうと思って購入しましたが、動き回る息子にもサッと塗ってあげられて楽です^^</p>
+<p class="text-[10px] text-outline mb-2">이**** ・ 2025-12-05</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_10.jpg"></div>
+<p class="text-[10px] text-primary truncate">オールデイオールセーフサンクリーム 60ml</p>
+</div>
+</div>
+</div>
+</div>
+<h4 class="font-label-md text-primary tracking-widest uppercase mb-4">Naverスマートストアレビュー</h4>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_01.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「保湿力は本当に最高」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">最初はカーミングジェルだけ注文したんですが、セールで安く買えるタイミングでローションも追加注文しました!!下の子が貨幣状湿疹があって使っているんですが、完全になくなったわけではないものの、保湿力は本当に最高です。</p>
+<p class="text-[10px] text-outline mb-2">rlag***** ・ 2026.04.10</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_01.jpg"></div>
+<p class="text-[10px] text-primary truncate">赤ちゃんガムテローション 300ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_02.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「泡がきめ細かくてもちもち」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">泡がきめ細かくてもちもちしていて、すごく良かったです!!赤ちゃんの頭に泡を乗せたまま体を洗っても泡が流れ落ちないので、目にしみないか焦って急いで洗い流さなくても大丈夫です!赤ちゃんも泡がもちもちして肌なじみが良いのが気に入ったのか、お風呂遊びの時に泡を触って喜んでいました。</p>
+<p class="text-[10px] text-outline mb-2">224w***** ・ 2026.03.13</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_02.jpg"></div>
+<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_03.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「一番泡がきめ細かくて」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">フォーミングウォッシュはいろいろ試しましたが、今まで使った中で一番泡がきめ細かくて、肌に触れた感触もとても良かったです。何より清潔に洗い上がるのにしっとり感がしっかり残ります。とても満足しています。刺激もなく、これからも長く使えそうです。</p>
+<p class="text-[10px] text-outline mb-2">simi***** ・ 2026.03.09</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_03.jpg"></div>
+<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_04.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「成分が優しいので安心」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">きめ細かい泡で子どもを洗うのがすごく楽です(笑)。それに、洗っている最中に子どもが泡を口に入れてしまうこともあるんですが、成分が優しいので安心できます(笑)。ハンドソープの代わりに使うと肌に優しい気がして、安心して洗えます〜〜〜</p>
+<p class="text-[10px] text-outline mb-2">summ***** ・ 2026.03.09</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_04.jpg"></div>
+<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_05.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「ほぼ無香料に近い」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">自分の顔で試してみたんですが、目にしみません!!それにママたちにとって一番扱いやすい泡タイプなのも気に入っています。娘の髪を洗ったら、髪がふわふわに柔らかくなりました〜。リピート購入したいです〜</p>
+<p class="text-[10px] text-outline mb-2">50**** ・ 2026.03.08</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_05.jpg"></div>
+<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_06.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「洗浄剤の残りが感じられず」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">今まで使っていたウォッシュと違って泡タイプなので、とても使いやすいです。ぬるつきもなく、肌に洗浄剤の残りが感じられず、すっきり洗い上がる感じがします。息子は肌が赤くなりがちで購入し、2日使ってみましたが期待以上でした。</p>
+<p class="text-[10px] text-outline mb-2">miyu**** ・ 2026.03.07</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_06.jpg"></div>
+<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_07.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「洗浄力がしっかりしていて」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">泡がもちっとしていて、泡タイプなのに洗浄力がしっかりしていてよく落ちます!お風呂上がりにすぐローションを塗らなくても乾燥してカサカサにならず、優しく洗えるのがとても良いです!</p>
+<p class="text-[10px] text-outline mb-2">yura**** ・ 2026.03.06</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_07.jpg"></div>
+<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_08.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「刺激がなく肌に優しい」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">子どもの肌が敏感なほうなので、優しいウォッシュを探していて使ってみました。泡もふわふわで、洗った後も肌が乾燥しないのが満足でした。刺激がなく肌に優しいので、しばらく使い続けたいと思います。</p>
+<p class="text-[10px] text-outline mb-2">yui5*** ・ 2026.03.05</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_08.jpg"></div>
+<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_09.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「ほのかな自然な香り」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">産後ケアセンターで一緒だったママ友が使っていたので真似して買ってみました(笑)。ほのかな自然な香りで、香りが残りすぎずさっぱりと仕上がるのがとても良かったです...!赤ちゃんの肌は少し乾燥気味なんですが、しっとりと塗れてとても満足です。</p>
+<p class="text-[10px] text-outline mb-2">summ***** ・ 2026.03.04</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_09.jpg"></div>
+<p class="text-[10px] text-primary truncate">赤ちゃん感太ローション 300ml</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden bg-white shadow-sm">
+<div class="aspect-square w-full overflow-hidden"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_10.jpg"></div>
+<div class="p-4">
+<div class="flex text-primary text-xs mb-2"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span></div>
+<p class="font-bold text-xs text-on-surface mb-1">「刺激なく落ち着いていく」</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">子どものために購入したのに、私の方がよく使うようになりました。刺激で赤くなった顔がひんやりして、刺激なく落ち着いていくので、私が全部使い切りそうです。香りには少し敏感なほうですが、人工的な香りではなく良かったです。</p>
+<p class="text-[10px] text-outline mb-2">miro**** ・ 2026.03.02</p>
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
+<div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_10.jpg"></div>
+<p class="text-[10px] text-primary truncate">鎮静ガムテスージングジェル 300ml</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sales / Platforms Section -->
+<section class="py-24 bg-white opacity-0 fade-in">
+<div class="max-w-container-max mx-auto px-margin-mobile text-center">
+<h2 class="font-headline-lg text-lg md:text-headline-lg text-primary mb-12"><p class="">Judaanの最新情報が気になる方は</p></h2>
+<a class="inline-flex items-center gap-3 mb-10 group" href="https://www.instagram.com/judaan_global?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/30 shrink-0">
+<img alt="Judaan Global Instagram" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtGnbp-_P9A1TBm-kq5wbDub_Lrv1IPOSJw0iWj9nKUNAaC0DfLxbOcvhZ1MIWyNMvkTULOCCTDdtOqvPksIn4Lqtui76JUGkS1acKBOTIk3sxQqkNKmEFc1NxnEZriHjmzBa3Q4OyiIbAXxmtPEc3saxlRSFwC-RXzw3k2tlPOy0pFCPNjVum-iErabqA4cq8UdrhBVwTb8F8nFne28DW5Wyf797JfjdI9Jl9Isn8CIg4n3_Bcj-sQR55kxJmc9jTtw">
+</div>
+<div class="text-left">
+<p class="font-bold text-on-surface group-hover:text-primary transition-colors">@judaan_global</p>
+<p class="text-xs text-on-surface-variant">Judaan | Family Skincare / OEM ODM</p>
+</div>
+</a>
+<div class="grid grid-cols-3 gap-2 md:gap-4 max-w-2xl mx-auto">
+<a class="group relative aspect-square overflow-hidden rounded-lg" href="https://www.instagram.com/reel/DZZFHSvRyKC/" target="_blank" rel="noopener noreferrer">
+<img alt="Judaan Instagram post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="이미지/instagram/ig_01.jpg">
+</a>
+<a class="group relative aspect-square overflow-hidden rounded-lg" href="https://www.instagram.com/reel/DXWt1j7yMNf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">
+<img alt="Judaan Instagram post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="이미지/instagram/ig_02.jpg">
+</a>
+<a class="group relative aspect-square overflow-hidden rounded-lg" href="https://www.instagram.com/p/DX_a9yRAbYa/" target="_blank" rel="noopener noreferrer">
+<img alt="Judaan Instagram post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="이미지/instagram/ig_03.jpg">
+</a>
+<a class="group relative aspect-square overflow-hidden rounded-lg" href="https://www.instagram.com/reel/DZ_qcZgh6rF/" target="_blank" rel="noopener noreferrer">
+<img alt="Judaan Instagram post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="이미지/instagram/ig_04.jpg">
+</a>
+<a class="group relative aspect-square overflow-hidden rounded-lg" href="https://www.instagram.com/p/DZv1jAhgY4r/" target="_blank" rel="noopener noreferrer">
+<img alt="Judaan Instagram post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="이미지/instagram/ig_05.jpg">
+</a>
+<a class="group relative aspect-square overflow-hidden rounded-lg" href="https://www.instagram.com/p/DZbNZjGAYZy/" target="_blank" rel="noopener noreferrer">
+<img alt="Judaan Instagram post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="이미지/instagram/ig_06.jpg">
+</a>
+</div>
+<a class="inline-flex items-center gap-2 mt-10 text-primary font-label-md tracking-widest uppercase border border-primary/30 rounded-full px-6 py-3 hover:bg-primary/5 transition-colors" href="https://www.instagram.com/judaan_global?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+<span class="material-symbols-outlined text-lg">open_in_new</span>
+Follow on Instagram
+</a>
+</div>
+</section>
+<section class="py-24 bg-surface px-margin-mobile opacity-0 fade-in" id="story">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="aspect-[3/4] rounded-t-full overflow-hidden shadow-xl">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCy4HzgfYf5qT7tF1-kn9NVAB1XtJvMRXZRlregVJuBa0vGOtYMniBfK0SnBSIUslCJfXiCotBKnxiAnAoZOWa2qzyFy5ZT8U9hEwvKUdSuTe3ZSDo0IFeuIRkaue1n7KOwZiTAywvTQW9NMH4N3cTKOodFVgoL7HZvUcsEdsExgbrrQR4DcW3R6Nz4Bq02Tbt0Ijma1ZE6yFsS2LaZDu3iUB0xlNGAGg_PKBXP0TFE7pV-zn6QrOGwmOQGE59-Z4SbJm0EZM9g8Q4fYg&quot;);"></div>
+</div>
+</div>
+<div class="space-y-6">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">OUR STORY</h2>
+<h3 class="font-headline-md text-on-surface">父の愛から始まった、<br>家族のためのスキンケア。</h3>
+<div class="space-y-4 text-on-surface-variant leading-loose">
+<p class="">Judaanは、一人の父親の切実な想いから誕生しました。敏感な肌を持つ子供のために、本当に安心して使えるものを。その答えを、私たちは済州島の清らかな海に見出しました。</p>
+<p class="">海の生命力を宿した「ガムテ（カジメ）」を主成分に、過剰な装飾を削ぎ落とし、肌が本当に必要とする成分だけを誠実に詰め込んでいます。</p>
+<p class="">私たちは単に製品を作るだけでなく、持続可能な循環を目指しています。収益の一部は、支援を必要とする家族へと還元され、真心が繋がっていく社会を願っています。</p>
+</div>
+<div class="pt-4">
+<div class="h-[1px] w-20 bg-primary mb-4"></div>
+<p class="font-label-md text-primary tracking-widest uppercase">Sincere Wellness for Family</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto">
+<div class="md:col-span-4 space-y-6">
+<div class="flex items-center gap-3">
+<div class="h-10 w-auto flex items-center"><img alt="Judaan House Icon" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtGnbp-_P9A1TBm-kq5wbDub_Lrv1IPOSJw0iWj9nKUNAaC0DfLxbOcvhZ1MIWyNMvkTULOCCTDdtOqvPksIn4Lqtui76JUGkS1acKBOTIk3sxQqkNKmEFc1NxnEZriHjmzBa3Q4OyiIbAXxmtPEc3saxlRSFwC-RXzw3k2tlPOy0pFCPNjVum-iErabqA4cq8UdrhBVwTb8F8nFne28DW5Wyf797JfjdI9Jl9Isn8CIg4n3_Bcj-sQR55kxJmc9jTtw"><img alt="Judaan Logo" class="h-6 w-auto object-contain ml-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJcbc0QLvQzG9JQup94J4Ap4jOFy2zw5YhbxUZQKg0HT04ezhBzWeyQNAqjUfs4qD8GB2EzCv16nOoPGF0I6tvu5m_0VJhZn-i7-m-cH8ImH3MsqJ294SoaPja_QimOFCJCKZOlNoGGF71qJ3dU7HfosDwWFxHT7Gczhcy2Z-pByeDkGj_yY_FOn-emhXDU6hE9RxB1t9AfILRGDyFsNkg977pwSd5Iu44SVVe0UzNLdRzXKYLjEc0tV783wvCdukYmw"></div>
+</div>
+<p class="text-on-surface-variant text-sm leading-loose text-xs md:text-sm">
+                    済州の海と父の真心が生んだプレミアムスキンケア。<br>
+                    私たちは家族の笑顔と、持続可能な未来を守り続けます。
+                </p>
+</div>
+<div class="md:col-span-4 space-y-4"><div class="space-y-4">
+<h4 class="font-label-md text-primary tracking-widest uppercase">Customer Support</h4>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+<span class="font-headline-md text-primary">+82-1551-0513</span>
+</div>
+<div class="text-xs text-on-surface-variant flex flex-wrap gap-x-4">
+<span class="">Hours: 10:00 AM – 4:00 PM</span>
+<span class="">Lunch: 11:00 AM – 12:00 PM</span>
+</div>
+<p class="text-[10px] text-outline">Closed on weekends and public holidays.</p>
+</div>
+</div></div>
+<div class="md:col-span-4 space-y-4"><div class="space-y-4">
+<h4 class="font-label-md text-primary tracking-widest uppercase">Corporate Info</h4>
+<div class="grid grid-cols-1 gap-2 text-[11px] leading-relaxed text-on-surface-variant">
+<div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">Corporate:</span><span class="">IAN GLOBAL | CEO: CHOI KYURI</span></div>
+<div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">Business No:</span><span class="">6738702980</span></div>
+<div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">E-commerce:</span><span class="">2025-용인수ジ-2468号</span></div>
+<div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">Address:</span><span class="">Suite 807-808, 37 Poeun-daero 59beon-gil, Suji-gu, Yongin-si, Gyeonggi-do, Republic of Korea</span></div>
+<div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">Privacy:</span><span class="">CHOI KYURI (ianglobal@ianglobal.im)</span></div>
+</div>
+</div></div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile py-8 border-t border-outline-variant text-center">
+<p class="text-xs text-outline">Copyright © Judaan. All rights reserved.</p>
+</div>
+</footer>
+<!-- Mobile Bottom Navigation (Visible on Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-[0_-5px_15px_rgba(0,0,0,0.05)] px-margin-mobile py-3 flex justify-around items-center pb-[env(safe-area-inset-bottom)]">
+<a class="flex flex-col items-center text-on-surface-variant" href="#products"></a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#"></a>
+<a class="flex flex-col items-center text-on-surface-variant" href="#"></a>
+</nav>
+<script>
+        // Swap hero background image based on ?utm_content=... (ad creative variant)
+        const heroImageByUtmContent = {
+            family_skincare: '이미지/hero/family_skincare.jpg',
+            baby_skincare: '이미지/hero/baby_skincare.jpg',
+            efficacy_ingredient: '이미지/hero/efficacy_ingredient.jpg',
+            texture_formula: '이미지/hero/texture_formula.jpg'
+        };
+        const utmContent = new URLSearchParams(window.location.search).get('utm_content');
+        const heroImagePath = utmContent && heroImageByUtmContent[utmContent];
+        if (heroImagePath) {
+            const heroBg = document.getElementById('hero-bg');
+            if (heroBg) heroBg.style.backgroundImage = `url("${heroImagePath}")`;
+        }
+
+        // Simple scroll header effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-sm', 'bg-white/95');
+                header.classList.remove('bg-surface/80');
+            } else {
+                header.classList.remove('py-2', 'shadow-sm', 'bg-white/95');
+                header.classList.add('bg-surface/80');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('opacity-0');
+            observer.observe(section);
+        });
+
+        // Review carousel active indicator logic
+        const carousel = document.querySelector('.snap-x');
+        const dots = document.querySelectorAll('.flex.justify-center.gap-2.mt-4 > div');
+        if (carousel && dots.length > 0) {
+            carousel.addEventListener('scroll', () => {
+                const scrollLeft = carousel.scrollLeft;
+                const width = carousel.offsetWidth;
+                const index = Math.round(scrollLeft / width);
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-primary/40', i === index);
+                    dot.classList.toggle('bg-primary/10', i !== index);
+                });
+            });
+        }
+
+        // All Reviews modal open/close
+        const allReviewsModal = document.getElementById('allReviewsModal');
+        const openAllReviews = document.getElementById('openAllReviews');
+        const closeAllReviews = document.getElementById('closeAllReviews');
+        const allReviewsBackdrop = document.getElementById('allReviewsBackdrop');
+        function openReviewsModal() {
+            allReviewsModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeReviewsModal() {
+            allReviewsModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        if (openAllReviews) openAllReviews.addEventListener('click', openReviewsModal);
+        if (closeAllReviews) closeAllReviews.addEventListener('click', closeReviewsModal);
+        if (allReviewsBackdrop) allReviewsBackdrop.addEventListener('click', closeReviewsModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeReviewsModal();
+        });
+    </script>
+</body></html>
