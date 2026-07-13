@@ -163,10 +163,10 @@
 <div id="hero-bg" class="w-full h-full bg-cover bg-center transition-transform duration-[10s] scale-110 hover:scale-100" style="background-image: url(&quot;이미지/hero/hero.jpg&quot;);"></div>
 </div>
 <div class="relative z-20 text-center fade-in">
-<h1 class="font-headline-xl text-headline-md md:text-headline-xl text-white mb-6 drop-shadow-lg">
+<h1 class="font-headline-xl text-headline-md md:text-headline-xl text-white mb-6 drop-shadow-lg" id="hero-title">
                     海の力で、<br class="md:hidden">家族にやすらぎを。
                 </h1>
-<p class="text-[14px] md:text-body-lg text-white/90 max-w-lg mx-auto leading-relaxed">父としての想いが込められた、本物の真心。</p>
+<p class="text-[14px] md:text-body-lg text-white/90 max-w-lg mx-auto leading-relaxed" id="hero-subtitle">父としての想いが込められた、本物の真心。</p>
 <div class="mt-10"></div>
 </div>
 </section>
@@ -1005,6 +1005,26 @@ Follow on Instagram
                 heroBg.style.backgroundImage = `url("${heroImagePath}")`;
                 heroBg.style.backgroundPosition = heroImagePositionByUtmContent[utmContent] || '';
             }
+        }
+
+        // Hero headline copy per ad creative — only overridden for efficacy_ingredient / texture_formula.
+        // baby_skincare / family_skincare / default keep the original headline & subtitle.
+        const heroCopyByUtmContent = {
+            efficacy_ingredient: {
+                title: '海の恵みを、<br class="md:hidden">肌のバリアに。',
+                subtitle: '済州産カジメが、ゆらぎがちな肌に必要な保湿力を届けます。'
+            },
+            texture_formula: {
+                title: '軽やかに、<br class="md:hidden">肌へ溶け込む。',
+                subtitle: 'べたつき知らずの使用感で、家族みんなが心地よく使えます。'
+            }
+        };
+        const heroCopy = heroCopyByUtmContent[utmContent];
+        if (heroCopy) {
+            const heroTitle = document.getElementById('hero-title');
+            const heroSubtitle = document.getElementById('hero-subtitle');
+            if (heroTitle) heroTitle.innerHTML = heroCopy.title;
+            if (heroSubtitle) heroSubtitle.textContent = heroCopy.subtitle;
         }
 
         // Reorder review carousel by relevance to the ad creative (utm_content)
