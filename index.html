@@ -992,12 +992,53 @@ Follow on Instagram
             efficacy_ingredient: '이미지/hero/efficacy_ingredient.jpg',
             texture_formula: '이미지/hero/texture_formula.jpg'
         };
+        const heroImagePositionByUtmContent = {
+            family_skincare: 'center 25%',
+            efficacy_ingredient: 'center 22%',
+            texture_formula: 'center 22%'
+        };
         const utmContent = new URLSearchParams(window.location.search).get('utm_content');
         const heroImagePath = utmContent && heroImageByUtmContent[utmContent];
         if (heroImagePath) {
             const heroBg = document.getElementById('hero-bg');
-            if (heroBg) heroBg.style.backgroundImage = `url("${heroImagePath}")`;
+            if (heroBg) {
+                heroBg.style.backgroundImage = `url("${heroImagePath}")`;
+                heroBg.style.backgroundPosition = heroImagePositionByUtmContent[utmContent] || '';
+            }
         }
+
+        // Amplitude click-event taxonomy helper (safe no-op if SDK hasn't loaded/blocked)
+        function trackEvent(name, properties) {
+            if (window.amplitude && typeof window.amplitude.track === 'function') {
+                window.amplitude.track(name, properties || {});
+            }
+        }
+
+        // FAQ Item Toggled — native <details> 'toggle' event fires on both open and close
+        document.querySelectorAll('#faq details').forEach((details) => {
+            details.addEventListener('toggle', () => {
+                const groupHeading = details.parentElement.previousElementSibling;
+                const questionLabel = details.querySelector('summary span')?.textContent.trim() || '';
+                trackEvent('FAQ Item Toggled', {
+                    question_group: groupHeading ? groupHeading.textContent.trim() : '',
+                    question_label: questionLabel,
+                    state: details.open ? 'open' : 'closed'
+                });
+            });
+        });
+
+        // Instagram Post Clicked / Instagram Follow Clicked
+        document.querySelectorAll('a[href*="instagram.com"]').forEach((link) => {
+            const isFollowLink = link.textContent.includes('Follow on Instagram');
+            if (isFollowLink) {
+                link.addEventListener('click', () => trackEvent('Instagram Follow Clicked'));
+            }
+        });
+        document.querySelectorAll('.grid a[href*="instagram.com"]').forEach((link, i) => {
+            link.addEventListener('click', () => {
+                trackEvent('Instagram Post Clicked', { post_index: i, destination_url: link.href });
+            });
+        });
 
         // Simple scroll header effect
         window.addEventListener('scroll', () => {
@@ -1075,9 +1116,18 @@ Follow on Instagram
                 if (isDesktop()) return;
                 updateDots(currentPageFromScroll());
             });
-            dots.forEach((dot, i) => dot.addEventListener('click', () => goToPage(i)));
-            if (reviewPrev) reviewPrev.addEventListener('click', () => goToPage(currentPageIndex - 1));
-            if (reviewNext) reviewNext.addEventListener('click', () => goToPage(currentPageIndex + 1));
+            dots.forEach((dot, i) => dot.addEventListener('click', () => {
+                trackEvent('Review Dot Clicked', { page_index: i });
+                goToPage(i);
+            }));
+            if (reviewPrev) reviewPrev.addEventListener('click', () => {
+                trackEvent('Review Carousel Navigated', { direction: 'prev', page_index: Math.max(0, currentPageIndex - 1) });
+                goToPage(currentPageIndex - 1);
+            });
+            if (reviewNext) reviewNext.addEventListener('click', () => {
+                trackEvent('Review Carousel Navigated', { direction: 'next', page_index: Math.min(dots.length - 1, currentPageIndex + 1) });
+                goToPage(currentPageIndex + 1);
+            });
             window.addEventListener('resize', () => {
                 if (isDesktop()) {
                     carousel.style.transform = `translateX(-${pageTarget(currentPageIndex)}px)`;
@@ -1094,24 +1144,29 @@ Follow on Instagram
         const closeAllReviews = document.getElementById('closeAllReviews');
         const allReviewsBackdrop = document.getElementById('allReviewsBackdrop');
         function openReviewsModal() {
+            trackEvent('All Reviews Modal Opened', { trigger_location: 'reviews_section' });
             allReviewsModal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
-        function closeReviewsModal() {
+        function closeReviewsModal(closeMethod) {
+            if (!allReviewsModal.classList.contains('hidden')) {
+                trackEvent('All Reviews Modal Closed', { close_method: closeMethod || 'unknown' });
+            }
             allReviewsModal.classList.add('hidden');
             document.body.style.overflow = '';
         }
         if (openAllReviews) openAllReviews.addEventListener('click', openReviewsModal);
-        if (closeAllReviews) closeAllReviews.addEventListener('click', closeReviewsModal);
-        if (allReviewsBackdrop) allReviewsBackdrop.addEventListener('click', closeReviewsModal);
+        if (closeAllReviews) closeAllReviews.addEventListener('click', () => closeReviewsModal('button'));
+        if (allReviewsBackdrop) allReviewsBackdrop.addEventListener('click', () => closeReviewsModal('backdrop'));
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeReviewsModal();
+            if (e.key === 'Escape') closeReviewsModal('esc');
         });
 
         // Logo click -> scroll to top
         const logoHome = document.getElementById('logoHome');
         if (logoHome) {
             logoHome.addEventListener('click', () => {
+                trackEvent('Logo Clicked');
                 window.scrollTo(0, 0);
                 document.documentElement.scrollTop = 0;
                 document.body.scrollTop = 0;
@@ -1125,6 +1180,7 @@ Follow on Instagram
             menuBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 menuDropdown.classList.toggle('hidden');
+                trackEvent('Nav Menu Toggled', { state: menuDropdown.classList.contains('hidden') ? 'closed' : 'open' });
             });
             document.addEventListener('click', () => menuDropdown.classList.add('hidden'));
             menuDropdown.addEventListener('click', (e) => e.stopPropagation());
@@ -1132,6 +1188,7 @@ Follow on Instagram
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const id = link.getAttribute('href').slice(1);
+                    trackEvent('Nav Menu Link Clicked', { label: link.textContent.trim(), target_section: id });
                     menuDropdown.classList.add('hidden');
                     const scrollTo = (y) => {
                         const top = Math.max(0, Math.round(y));
@@ -1156,5 +1213,11 @@ Follow on Instagram
                 });
             });
         }
+    </script>
+    <!-- Amplitude Analytics + Session Replay (client-side only, initialized once) -->
+    <script type="module">
+        import * as amplitude from "https://cdn.jsdelivr.net/npm/@amplitude/unified@latest/+esm";
+        window.amplitude = amplitude;
+        amplitude.initAll('e7427d422002c148905f91ce68e26f7d', {"analytics":{"autocapture":true},"sessionReplay":{"sampleRate":1}});
     </script>
 </body></html>
