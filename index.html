@@ -1093,6 +1093,21 @@ Follow on Instagram
             });
         });
 
+        // Official Site Clicked — "公式サイトはこちら" button next to PRODUCTS heading
+        document.querySelectorAll('a[href*="judaan.im/category"]').forEach((link) => {
+            link.addEventListener('click', () => {
+                trackEvent('Official Site Clicked', { destination_url: link.href, trigger_location: 'products_section_header' });
+            });
+        });
+
+        // Product Clicked — individual product card links to judaan.im product pages
+        document.querySelectorAll('a[href*="judaan.im/product"]').forEach((link, i) => {
+            link.addEventListener('click', () => {
+                const productName = link.querySelector('h3')?.textContent.trim() || '';
+                trackEvent('Product Clicked', { product_index: i, product_name: productName, destination_url: link.href });
+            });
+        });
+
         // Simple scroll header effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
