@@ -309,7 +309,7 @@ more
 <div class="overflow-x-auto md:overflow-hidden">
 <div class="flex snap-x md:snap-none snap-mandatory no-scrollbar gap-gutter pb-8 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 md:transition-transform md:duration-500 md:ease-out" id="reviewTrack">
 <!-- Review 1 -->
-<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center" data-review-id="1">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_01.jpg">
@@ -333,7 +333,7 @@ more
 </div>
 </div>
 <!-- Review 2 -->
-<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center" data-review-id="2">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_02.jpg">
@@ -357,7 +357,7 @@ more
 </div>
 </div>
 <!-- Review 3 -->
-<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center" data-review-id="3">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_03.jpg">
@@ -381,7 +381,7 @@ more
 </div>
 </div>
 <!-- Review 4 -->
-<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center" data-review-id="4">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_04.jpg">
@@ -405,7 +405,7 @@ more
 </div>
 </div>
 <!-- Review 5 -->
-<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center" data-review-id="5">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_05.jpg">
@@ -429,7 +429,7 @@ more
 </div>
 </div>
 <!-- Review 6 -->
-<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center" data-review-id="6">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_06.jpg">
@@ -453,7 +453,7 @@ more
 </div>
 </div>
 <!-- Review 7 -->
-<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center" data-review-id="7">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_07.jpg">
@@ -477,7 +477,7 @@ more
 </div>
 </div>
 <!-- Review 8 -->
-<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center" data-review-id="8">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_08.jpg">
@@ -1006,6 +1006,25 @@ Follow on Instagram
                 heroBg.style.backgroundPosition = heroImagePositionByUtmContent[utmContent] || '';
             }
         }
+
+        // Reorder review carousel by relevance to the ad creative (utm_content)
+        // Must run BEFORE the carousel pagination script captures card order.
+        const reviewPriorityByUtmContent = {
+            baby_skincare: [2, 8, 5, 6, 1, 4, 3, 7],
+            family_skincare: [4, 3, 5, 8, 2, 1, 6, 7],
+            efficacy_ingredient: [6, 2, 5, 1, 8, 7, 3, 4],
+            texture_formula: [7, 1, 5, 8, 3, 6, 2, 4]
+        };
+        (function reorderReviewsByUtm() {
+            const order = reviewPriorityByUtmContent[utmContent];
+            if (!order) return;
+            const track = document.getElementById('reviewTrack');
+            if (!track) return;
+            order.forEach((reviewId) => {
+                const card = track.querySelector(`[data-review-id="${reviewId}"]`);
+                if (card) track.appendChild(card);
+            });
+        })();
 
         // Amplitude click-event taxonomy helper (safe no-op if SDK hasn't loaded/blocked)
         function trackEvent(name, properties) {
