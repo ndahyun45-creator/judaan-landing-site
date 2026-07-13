@@ -113,14 +113,46 @@
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Review carousel: uniform card layout */
+        .snap-x > div > .glass-card { display: flex; flex-direction: column; }
+        .snap-x > div > .glass-card > .aspect-square { flex-shrink: 0; }
+        .snap-x > div > .glass-card > .p-6 { flex: 1 1 auto; display: flex; flex-direction: column; }
+        .snap-x > div > .glass-card > .p-6 > p.italic {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .snap-x > div > .glass-card > .p-6 > .border-t { margin-top: auto; }
+        /* FAQ accordion: hide default disclosure marker + rotate chevron when open */
+        #faq summary { list-style: none; }
+        #faq summary::-webkit-details-marker { display: none; }
+        #faq summary::marker { content: ""; }
+        #faq .faq-chevron { display: inline-flex; transform: rotate(0deg); transition: transform 0.3s ease; }
+        #faq details[open] .faq-chevron { transform: rotate(180deg); }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
 <!-- Header Navigation -->
 <header class="fixed top-0 w-full z-50 backdrop-blur-md transition-all duration-300 py-2 shadow-sm bg-white/95">
 <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-<div class="flex items-center gap-3">
+<div class="flex items-center gap-3 cursor-pointer" id="logoHome" role="button" aria-label="トップへ戻る">
 <div class="h-10 w-auto flex items-center"><img alt="Judaan House Icon" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtGnbp-_P9A1TBm-kq5wbDub_Lrv1IPOSJw0iWj9nKUNAaC0DfLxbOcvhZ1MIWyNMvkTULOCCTDdtOqvPksIn4Lqtui76JUGkS1acKBOTIk3sxQqkNKmEFc1NxnEZriHjmzBa3Q4OyiIbAXxmtPEc3saxlRSFwC-RXzw3k2tlPOy0pFCPNjVum-iErabqA4cq8UdrhBVwTb8F8nFne28DW5Wyf797JfjdI9Jl9Isn8CIg4n3_Bcj-sQR55kxJmc9jTtw"><img alt="Judaan Logo" class="h-6 w-auto object-contain ml-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJcbc0QLvQzG9JQup94J4Ap4jOFy2zw5YhbxUZQKg0HT04ezhBzWeyQNAqjUfs4qD8GB2EzCv16nOoPGF0I6tvu5m_0VJhZn-i7-m-cH8ImH3MsqJ294SoaPja_QimOFCJCKZOlNoGGF71qJ3dU7HfosDwWFxHT7Gczhcy2Z-pByeDkGj_yY_FOn-emhXDU6hE9RxB1t9AfILRGDyFsNkg977pwSd5Iu44SVVe0UzNLdRzXKYLjEc0tV783wvCdukYmw"></div></div>
+<div class="relative">
+<button aria-label="メニュー" class="flex items-center justify-center w-10 h-10 rounded-full text-primary hover:bg-primary/10 transition-colors" id="menuBtn" type="button">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<nav class="hidden absolute right-0 top-full mt-2 w-52 bg-white rounded-xl shadow-lg border border-outline-variant overflow-hidden py-2" id="menuDropdown">
+<a class="block px-5 py-2.5 text-sm text-on-surface hover:bg-primary/5 hover:text-primary transition-colors" href="#products">PRODUCTS</a>
+<a class="block px-5 py-2.5 text-sm text-on-surface hover:bg-primary/5 hover:text-primary transition-colors" href="#ingredient">海からの贈り物</a>
+<a class="block px-5 py-2.5 text-sm text-on-surface hover:bg-primary/5 hover:text-primary transition-colors" href="#trust">認証</a>
+<a class="block px-5 py-2.5 text-sm text-on-surface hover:bg-primary/5 hover:text-primary transition-colors" href="#reviews">VOICE OF FAMILIES</a>
+<a class="block px-5 py-2.5 text-sm text-on-surface hover:bg-primary/5 hover:text-primary transition-colors" href="#instagram">INSTAGRAM</a>
+<a class="block px-5 py-2.5 text-sm text-on-surface hover:bg-primary/5 hover:text-primary transition-colors" href="#story">OUR STORY</a>
+<a class="block px-5 py-2.5 text-sm text-on-surface hover:bg-primary/5 hover:text-primary transition-colors" href="#faq">FAQ</a>
+<a class="block px-5 py-2.5 text-sm text-on-surface hover:bg-primary/5 hover:text-primary transition-colors" href="#bottom">JUDAAN INFO.</a>
+</nav>
+</div>
 </div>
 </header>
 <main class="pt-16">
@@ -132,7 +164,7 @@
 </div>
 <div class="relative z-20 text-center fade-in">
 <h1 class="font-headline-xl text-headline-md md:text-headline-xl text-white mb-6 drop-shadow-lg">
-                    海の力で、家族にやすらぎを。
+                    海の力で、<br class="md:hidden">家族にやすらぎを。
                 </h1>
 <p class="text-[14px] md:text-body-lg text-white/90 max-w-lg mx-auto leading-relaxed">父としての想いが込められた、本物の真心。</p>
 <div class="mt-10"></div>
@@ -155,113 +187,110 @@
 </div>
 <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBwSDoVBTRjoSelPF5V4p_b9wammfpxf1tUG_3f5puJTYDSEtNbQlrrFovusfXbMpUwBfFvv8GSd3JoGTU0hU9-14tlcr7DxdLQ6gRK34dj7yxMR05JvjCyTQ7Umn0W8Rd8UzKUrVd5GXJQB4H-VPlDS5dnKVR7ARcy4ITTdOg1WGeB872A4HtxYPjuEKxmEbWxtQjggy_HHn8hZ5D2MOFuqRYpw2Sx3sdrvs_eIyGcx4RP1CXIkKeIJd8UytPL7qAInw&quot;);"></div>
 </div>
-<h3 class="font-body-md text-on-surface mb-1">しっかりバリア 保湿ミルク</h3>
-<p class="text-xs text-on-surface-variant mb-2">300ml / Barrier Moisturizing</p>
-<p class="font-body-lg text-secondary">¥3,500 <span class="text-[10px] text-outline">(税込)</span></p>
+<h3 class="font-body-md text-on-surface mb-1 break-keep">ハードバリア 保湿ローション</h3>
+<p class="text-xs text-on-surface-variant mb-2">300ml / Daily Moisture Lotion</p>
+<p class="font-body-lg text-secondary tracking-wide">COMING SOON</p>
 </div>
 <!-- Product 2 -->
 <div class="group">
 <div class="relative aspect-[3/4] bg-white rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow">
-<div class="absolute top-3 left-3 z-10">
-<span class="bg-tertiary-container/20 text-tertiary text-[10px] font-label-md px-2 py-1 rounded-full uppercase">New</span>
-</div>
 <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB5GbeXwPLtcT9v5xDXb0cQhSLXJa9C2aWsqTcByme7e8jTIeVZWmdbkveuugpXFanuCIaYV04joaGHTbFDEKgBDGqMwqY1hh6fwLf6A1XimcboX576wJKi-FZ15jfyux_uE1xM39R8DAUb0noGGpbZanQeJupsfYluDXq0BQTXmIf83wcdm7A6i0DQ9Iko9o6yrGeRAFHP9evET2vl46NeL3WExwvVa7aG2A7rrnOYWbflBCidOtBHMoBG0HKqMjobtQ&quot;);"></div>
 </div>
-<h3 class="font-body-md text-on-surface mb-1">モイスト ヒーリング カーミングジェル</h3>
-<p class="text-xs text-on-surface-variant mb-2">300ml / Soothing Gel</p>
-<p class="font-body-lg text-secondary">¥3,200 <span class="text-[10px] text-outline">(税込)</span></p>
+<h3 class="font-body-md text-on-surface mb-1 break-keep">モイスト ヒーリング カーミングジェル</h3>
+<p class="text-xs text-on-surface-variant mb-2">300ml / Moisture Soothing Gel</p>
+<p class="font-body-lg text-secondary tracking-wide">COMING SOON</p>
 </div>
 <!-- Product 4 -->
 <div class="group">
 <div class="relative aspect-[3/4] bg-white rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-shadow">
 <div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuC97o_i6yoneDrgOpLM4p-L7GBIzHBP0VOVLD5MzTD4Zge5VdeEt5YKIYQVB9OqYrfnd17BQ5TQMGsxkVTy1ol1zMzYU1BG4z62ZSTU96qKMdvP2PvbESGXlOogCTeK6d-455KBMnpMwXb9vB_lH3hErcjYhFRDmfdxdLGFT9Qclnx9QDgDKMgmSNpnelu6zxmxAhBYmGn-C0w7t9C1eaXWP5G_6POENelVy3diyimjFGsixcPKMixkTTNzy5iUQRzI1w&quot;);"></div>
 </div>
-<h3 class="font-body-md text-on-surface mb-1">ブリージング オールインワン ボディソープ</h3>
-<p class="text-xs text-on-surface-variant mb-2">500ml / All-in-one</p>
-<p class="font-body-lg text-secondary">¥3,800 <span class="text-[10px] text-outline">(税込)</span></p>
+<h3 class="font-body-md text-on-surface mb-1 break-keep">ブリージング オールインワン フォーミングウォッシュ</h3>
+<p class="text-xs text-on-surface-variant mb-2">500ml / Face &amp; Body Soap</p>
+<p class="font-body-lg text-secondary tracking-wide">COMING SOON</p>
 </div>
 </div>
 </div>
 </section>
 <!-- Ingredient Section -->
-<section class="py-24 bg-white opacity-0 fade-in">
+<section class="py-24 bg-white opacity-0 fade-in" id="ingredient">
 <div class="max-w-container-max mx-auto px-margin-mobile text-center mb-16">
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">海からの贈り物</h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto">済州島の清らかな海で育った「カンテ（カジメ）」から抽出された成分。その豊かな生命力が、ゆらぎがちな家族の肌に「しっかりとしたバリア」を築きます。</p>
+<p class="text-on-surface-variant max-w-2xl mx-auto text-[11px] md:text-base">済州島の清らかな海で育った「カジメ」から抽出された成分。<br>その豊かな生命力が、ゆらぎがちな家族の肌に<span class="whitespace-nowrap">「しっかりとしたバリア」</span>を築きます。</p>
 </div>
 <div class="max-w-container-max mx-auto px-margin-mobile">
-<div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
-<div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-primary/20 -translate-y-1/2 z-0"></div>
-<div class="relative z-10 flex flex-col items-center group">
-<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
-<span class="material-symbols-outlined text-primary text-3xl">eco</span>
+<div class="grid grid-cols-5 gap-2 md:gap-4 relative">
+<div class="block absolute top-6 md:top-10 left-0 w-full h-[1px] bg-primary/20 -translate-y-1/2 z-0"></div>
+<div class="relative z-10 flex flex-col items-center text-center group">
+<div class="w-12 h-12 md:w-20 md:h-20 bg-surface-container rounded-full flex items-center justify-center mb-2 md:mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-lg md:text-3xl">eco</span>
 </div>
-<span class="text-xs font-label-md text-outline mb-2">STEP 01</span>
-<h4 class="font-bold text-sm">原料準備</h4>
-<p class="text-[10px] text-on-surface-variant mt-2 px-2 leading-tight">最上の原料のみを厳選</p>
+<span class="text-[9px] md:text-xs font-label-md text-outline mb-1 md:mb-2">STEP 01</span>
+<h4 class="font-bold text-[11px] md:text-sm">原料準備</h4>
+<p class="text-[9px] md:text-[10px] text-on-surface-variant mt-1 md:mt-2 px-1 md:px-2 leading-tight text-balance">最上の原料のみを厳選</p>
 </div>
-<div class="relative z-10 flex flex-col items-center group">
-<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
-<span class="material-symbols-outlined text-primary text-3xl">ac_unit</span>
+<div class="relative z-10 flex flex-col items-center text-center group">
+<div class="w-12 h-12 md:w-20 md:h-20 bg-surface-container rounded-full flex items-center justify-center mb-2 md:mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-lg md:text-3xl">ac_unit</span>
 </div>
-<span class="text-xs font-label-md text-outline mb-2">STEP 02</span>
-<h4 class="font-bold text-sm">凍結乾燥</h4>
-<p class="text-[10px] text-on-surface-variant mt-2 px-2 leading-tight">-40℃以下、48hr水分を完全に乾燥</p>
+<span class="text-[9px] md:text-xs font-label-md text-outline mb-1 md:mb-2">STEP 02</span>
+<h4 class="font-bold text-[11px] md:text-sm">凍結乾燥</h4>
+<p class="text-[9px] md:text-[10px] text-on-surface-variant mt-1 md:mt-2 px-1 md:px-2 leading-tight text-balance">-40℃以下、48hr水分を完全に乾燥</p>
 </div>
-<div class="relative z-10 flex flex-col items-center group">
-<div class="w-20 h-20 bg-primary-container/20 rounded-full flex items-center justify-center mb-4 border-2 border-primary transition-all duration-500">
-<span class="material-symbols-outlined text-primary text-3xl">cyclone</span>
+<div class="relative z-10 flex flex-col items-center text-center group">
+<div class="w-12 h-12 md:w-20 md:h-20 bg-[#e8f1e3] rounded-full flex items-center justify-center mb-2 md:mb-4 border-2 border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-lg md:text-3xl">cyclone</span>
 </div>
-<span class="text-xs font-label-md text-primary mb-2">STEP 03</span>
-<h4 class="font-bold text-sm">グラインディング</h4>
-<p class="text-[10px] text-on-surface-variant mt-2 px-2 leading-tight">微細な粒子にするため高速回転粉砕</p>
+<span class="text-[9px] md:text-xs font-label-md text-primary mb-1 md:mb-2">STEP 03</span>
+<h4 class="font-bold text-[11px] md:text-sm">グライン<br class="md:hidden">ディング</h4>
+<p class="text-[9px] md:text-[10px] text-on-surface-variant mt-1 md:mt-2 px-1 md:px-2 leading-tight text-balance">微細な粒子にするため高速回転粉砕</p>
 </div>
-<div class="relative z-10 flex flex-col items-center group">
-<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
-<span class="material-symbols-outlined text-primary text-3xl">waves</span>
+<div class="relative z-10 flex flex-col items-center text-center group">
+<div class="w-12 h-12 md:w-20 md:h-20 bg-surface-container rounded-full flex items-center justify-center mb-2 md:mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-lg md:text-3xl">waves</span>
 </div>
-<span class="text-xs font-label-md text-outline mb-2">STEP 04</span>
-<h4 class="font-bold text-sm">超音波抽出</h4>
-<p class="text-[10px] text-on-surface-variant mt-2 px-2 leading-tight">最大 28KHzの超音波を使用して抽出</p>
+<span class="text-[9px] md:text-xs font-label-md text-outline mb-1 md:mb-2">STEP 04</span>
+<h4 class="font-bold text-[11px] md:text-sm">超音波抽出</h4>
+<p class="text-[9px] md:text-[10px] text-on-surface-variant mt-1 md:mt-2 px-1 md:px-2 leading-tight text-balance">最大 28KHzの超音波を使用して抽出</p>
 </div>
-<div class="relative z-10 flex flex-col items-center group">
-<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
-<span class="material-symbols-outlined text-primary text-3xl">filter_alt</span>
+<div class="relative z-10 flex flex-col items-center text-center group">
+<div class="w-12 h-12 md:w-20 md:h-20 bg-surface-container rounded-full flex items-center justify-center mb-2 md:mb-4 border-2 border-transparent group-hover:border-primary transition-all duration-500">
+<span class="material-symbols-outlined text-primary text-lg md:text-3xl">filter_alt</span>
 </div>
-<span class="text-xs font-label-md text-outline mb-2">STEP 05</span>
-<h4 class="font-bold text-sm">精製および濾過</h4>
-<p class="text-[10px] text-on-surface-variant mt-2 px-2 leading-tight">不純物の精製および濾過</p>
+<span class="text-[9px] md:text-xs font-label-md text-outline mb-1 md:mb-2">STEP 05</span>
+<h4 class="font-bold text-[11px] md:text-sm">精製および<br class="md:hidden">濾過</h4>
+<p class="text-[9px] md:text-[10px] text-on-surface-variant mt-1 md:mt-2 px-1 md:px-2 leading-tight text-balance">不純物の精製および濾過</p>
 </div>
 </div>
 </div>
 </section>
 <!-- Trust Section -->
-<section class="py-16 border-y border-outline-variant bg-white overflow-x-auto no-scrollbar opacity-0 fade-in">
-<div class="max-w-container-max mx-auto px-margin-mobile flex items-center justify-between min-w-[800px] gap-8">
-<div class="flex flex-col items-center gap-2">
-<span class="material-symbols-outlined text-primary text-4xl">verified_user</span>
-<span class="text-[10px] font-label-md text-secondary">CPNP 認証済み</span>
+<section class="py-16 border-y border-outline-variant bg-white opacity-0 fade-in" id="trust">
+<div class="max-w-container-max mx-auto px-margin-mobile grid grid-cols-5 gap-2 md:gap-8 items-start">
+<div class="flex flex-col items-center gap-2 text-center">
+<span class="material-symbols-outlined text-primary text-2xl md:text-4xl">verified_user</span>
+<span class="text-[9px] md:text-[10px] font-label-md text-secondary leading-tight">CPNP 認証済み</span>
 </div>
-<div class="flex flex-col items-center gap-2">
-<span class="material-symbols-outlined text-primary text-4xl">medical_services</span>
-<span class="text-[10px] font-label-md text-secondary">MoCRA 登録済</span>
+<div class="flex flex-col items-center gap-2 text-center">
+<span class="material-symbols-outlined text-primary text-2xl md:text-4xl">medical_services</span>
+<span class="text-[9px] md:text-[10px] font-label-md text-secondary leading-tight">MoCRA 登録済</span>
 </div>
-<div class="flex flex-col items-center gap-2">
-<span class="material-symbols-outlined text-primary text-4xl">child_care</span>
-<span class="text-[10px] font-label-md text-secondary uppercase">小児科医テスト済み</span>
+<div class="flex flex-col items-center gap-2 text-center">
+<span class="material-symbols-outlined text-primary text-2xl md:text-4xl">child_care</span>
+<span class="text-[9px] md:text-[10px] font-label-md text-secondary leading-tight">小児科医<br class="md:hidden">テスト済み</span>
 </div>
-<div class="flex flex-col items-center gap-2">
-<span class="material-symbols-outlined text-primary text-4xl">relax</span>
-<span class="text-[10px] font-label-md text-secondary">低刺激処方</span>
+<div class="flex flex-col items-center gap-2 text-center">
+<span class="material-symbols-outlined text-primary text-2xl md:text-4xl">relax</span>
+<span class="text-[9px] md:text-[10px] font-label-md text-secondary leading-tight">低刺激処方</span>
 </div>
-<div class="flex flex-col items-center gap-2">
-<span class="material-symbols-outlined text-primary text-4xl">biotech</span>
-<span class="text-[10px] font-label-md text-secondary">皮膚科学的テスト済み</span>
+<div class="flex flex-col items-center gap-2 text-center">
+<span class="material-symbols-outlined text-primary text-2xl md:text-4xl">biotech</span>
+<span class="text-[9px] md:text-[10px] font-label-md text-secondary leading-tight">皮膚科学的<br class="md:hidden">テスト済み</span>
 </div>
 </div>
 </section>
 <!-- Reviews Section -->
-<section class="py-24 bg-surface-container opacity-0 fade-in overflow-hidden">
+<section class="py-24 bg-surface-container opacity-0 fade-in" id="reviews">
 <div class="max-w-container-max mx-auto px-margin-mobile">
 <div class="flex justify-between items-center mb-16">
 <h2 class="font-headline-lg text-headline-lg-mobile text-primary">VOICE OF FAMILIES</h2>
@@ -271,9 +300,16 @@ more
 </button>
 </div>
 <div class="relative">
-<div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-gutter pb-8 -mx-margin-mobile px-margin-mobile">
+<button aria-label="이전 리뷰" class="hidden md:flex absolute md:-left-16 lg:-left-20 top-[192px] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-surface shadow-md items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors" id="reviewPrev" type="button">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button aria-label="다음 리뷰" class="hidden md:flex absolute md:-right-16 lg:-right-20 top-[192px] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-surface shadow-md items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors" id="reviewNext" type="button">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<div class="overflow-x-auto md:overflow-hidden">
+<div class="flex snap-x md:snap-none snap-mandatory no-scrollbar gap-gutter pb-8 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 md:transition-transform md:duration-500 md:ease-out" id="reviewTrack">
 <!-- Review 1 -->
-<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_01.jpg">
@@ -297,7 +333,7 @@ more
 </div>
 </div>
 <!-- Review 2 -->
-<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_02.jpg">
@@ -316,12 +352,12 @@ more
 <div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
 <span>이**** ・ 2026-03-10</span>
 </div>
-<p class="text-[10px] text-primary font-label-md mt-1 uppercase">ハードバリア保湿ローション 300ml</p>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">ハードバリア 保湿ローション 300ml</p>
 </div>
 </div>
 </div>
 <!-- Review 3 -->
-<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_03.jpg">
@@ -335,17 +371,17 @@ more
 <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
 </div>
 <p class="text-on-surface-variant italic leading-relaxed text-sm mb-4">
-                            「泡タイプだから楽です。今までジェルばかり使っていたけど、なんでジェルを使ってたんだろう...って思うくらい(笑)。楽だし、お風呂がほぼ3分で終わります。」
+                            「香りが良くてついつい手が伸びます。香り付きは初めてでしたが、赤ちゃんと一緒に香りを楽しんだり、泡で感覚遊びもできて楽しいです!天然の香りがついているとは思わなかったので、満足しています^^」
                         </p>
 <div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
-<span>이**** ・ 2026-01-30</span>
+<span>김**** ・ 2026-01-09</span>
 </div>
 <p class="text-[10px] text-primary font-label-md mt-1 uppercase">ブリージング オールインワン フォーミングウォッシュ 500ml</p>
 </div>
 </div>
 </div>
 <!-- Review 4 -->
-<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_04.jpg">
@@ -369,7 +405,7 @@ more
 </div>
 </div>
 <!-- Review 5 -->
-<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_05.jpg">
@@ -393,7 +429,7 @@ more
 </div>
 </div>
 <!-- Review 6 -->
-<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_06.jpg">
@@ -412,12 +448,12 @@ more
 <div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
 <span>rlag***** ・ 2026.04.10</span>
 </div>
-<p class="text-[10px] text-primary font-label-md mt-1 uppercase">赤ちゃん ガムテ ローション 300ml</p>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">赤ちゃん カジメ ローション 300ml</p>
 </div>
 </div>
 </div>
 <!-- Review 7 -->
-<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_07.jpg">
@@ -436,12 +472,12 @@ more
 <div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
 <span>224w***** ・ 2026.03.13</span>
 </div>
-<p class="text-[10px] text-primary font-label-md mt-1 uppercase">新生児 ガムテ ボディウォッシュ 500ml</p>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">新生児 カジメ ボディウォッシュ 500ml</p>
 </div>
 </div>
 </div>
 <!-- Review 8 -->
-<div class="w-[85vw] md:w-[calc((1200px-48px)/3)] shrink-0 snap-center">
+<div class="w-[85vw] md:w-[calc((100%-48px)/3)] shrink-0 snap-center">
 <div class="glass-card rounded-2xl shadow-sm hover:shadow-md transition-all h-full overflow-hidden">
 <div class="aspect-square w-full overflow-hidden">
 <img alt="Judaan顧客レビュー写真" class="w-full h-full object-cover" src="이미지/reviews/review_08.jpg">
@@ -460,20 +496,16 @@ more
 <div class="flex items-center justify-between text-xs text-outline border-t border-outline-variant pt-3">
 <span>summ***** ・ 2026.03.09</span>
 </div>
-<p class="text-[10px] text-primary font-label-md mt-1 uppercase">新生児 ガムテ ボディウォッシュ 500ml</p>
+<p class="text-[10px] text-primary font-label-md mt-1 uppercase">新生児 カジメ ボディウォッシュ 500ml</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="flex justify-center gap-2 mt-4">
-<div class="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
-<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
-<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
-<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
-<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
-<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
-<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
-<div class="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
+<button aria-label="리뷰 그룹 1로 이동" class="w-1.5 h-1.5 rounded-full bg-primary/40" type="button"></button>
+<button aria-label="리뷰 그룹 2로 이동" class="w-1.5 h-1.5 rounded-full bg-primary/10" type="button"></button>
+<button aria-label="리뷰 그룹 3로 이동" class="w-1.5 h-1.5 rounded-full bg-primary/10" type="button"></button>
 </div>
 </div>
 </div>
@@ -483,7 +515,7 @@ more
 <div class="absolute inset-0 bg-black/40" id="allReviewsBackdrop"></div>
 <div class="absolute inset-0 top-8 md:top-16 bg-surface rounded-t-2xl overflow-y-auto">
 <div class="sticky top-0 bg-surface/95 backdrop-blur-md z-10 flex items-center justify-between px-margin-mobile md:px-margin-desktop py-4 border-b border-outline-variant">
-<h3 class="font-headline-md text-on-surface">お客様の声(全20件)</h3>
+<h3 class="font-headline-md text-on-surface">高評価レビュー BEST 20</h3>
 <button aria-label="close" class="text-on-surface-variant" id="closeAllReviews" type="button">
 <span class="material-symbols-outlined text-2xl">close</span>
 </button>
@@ -513,7 +545,7 @@ more
 <p class="text-[10px] text-outline mb-2">이**** ・ 2026-03-10</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_02.jpg"></div>
-<p class="text-[10px] text-primary truncate">ハードバリア保湿ローション 300ml</p>
+<p class="text-[10px] text-primary truncate">ハードバリア 保湿ローション 300ml</p>
 </div>
 </div>
 </div>
@@ -539,7 +571,7 @@ more
 <p class="text-[10px] text-outline mb-2">우**** ・ 2026-03-10</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_official_04.jpg"></div>
-<p class="text-[10px] text-primary truncate">ハードバリア保湿ローション 300ml</p>
+<p class="text-[10px] text-primary truncate">ハードバリア 保湿ローション 300ml</p>
 </div>
 </div>
 </div>
@@ -633,7 +665,7 @@ more
 <p class="text-[10px] text-outline mb-2">rlag***** ・ 2026.04.10</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_01.jpg"></div>
-<p class="text-[10px] text-primary truncate">赤ちゃんガムテローション 300ml</p>
+<p class="text-[10px] text-primary truncate">赤ちゃんカジメローション 300ml</p>
 </div>
 </div>
 </div>
@@ -646,7 +678,7 @@ more
 <p class="text-[10px] text-outline mb-2">224w***** ・ 2026.03.13</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_02.jpg"></div>
-<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+<p class="text-[10px] text-primary truncate">新生児カジメボディウォッシュ 500ml</p>
 </div>
 </div>
 </div>
@@ -659,7 +691,7 @@ more
 <p class="text-[10px] text-outline mb-2">simi***** ・ 2026.03.09</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_03.jpg"></div>
-<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+<p class="text-[10px] text-primary truncate">新生児カジメボディウォッシュ 500ml</p>
 </div>
 </div>
 </div>
@@ -672,7 +704,7 @@ more
 <p class="text-[10px] text-outline mb-2">summ***** ・ 2026.03.09</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_04.jpg"></div>
-<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+<p class="text-[10px] text-primary truncate">新生児カジメボディウォッシュ 500ml</p>
 </div>
 </div>
 </div>
@@ -685,7 +717,7 @@ more
 <p class="text-[10px] text-outline mb-2">50**** ・ 2026.03.08</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_05.jpg"></div>
-<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+<p class="text-[10px] text-primary truncate">新生児カジメボディウォッシュ 500ml</p>
 </div>
 </div>
 </div>
@@ -698,7 +730,7 @@ more
 <p class="text-[10px] text-outline mb-2">miyu**** ・ 2026.03.07</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_06.jpg"></div>
-<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+<p class="text-[10px] text-primary truncate">新生児カジメボディウォッシュ 500ml</p>
 </div>
 </div>
 </div>
@@ -711,7 +743,7 @@ more
 <p class="text-[10px] text-outline mb-2">yura**** ・ 2026.03.06</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_07.jpg"></div>
-<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+<p class="text-[10px] text-primary truncate">新生児カジメボディウォッシュ 500ml</p>
 </div>
 </div>
 </div>
@@ -724,7 +756,7 @@ more
 <p class="text-[10px] text-outline mb-2">yui5*** ・ 2026.03.05</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_08.jpg"></div>
-<p class="text-[10px] text-primary truncate">新生児ガムテボディウォッシュ 500ml</p>
+<p class="text-[10px] text-primary truncate">新生児カジメボディウォッシュ 500ml</p>
 </div>
 </div>
 </div>
@@ -737,7 +769,7 @@ more
 <p class="text-[10px] text-outline mb-2">summ***** ・ 2026.03.04</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_09.jpg"></div>
-<p class="text-[10px] text-primary truncate">赤ちゃん感太ローション 300ml</p>
+<p class="text-[10px] text-primary truncate">赤ちゃんカジメローション 300ml</p>
 </div>
 </div>
 </div>
@@ -750,7 +782,7 @@ more
 <p class="text-[10px] text-outline mb-2">miro**** ・ 2026.03.02</p>
 <div class="flex items-center gap-2 pt-2 border-t border-outline-variant">
 <div class="w-6 h-6 rounded-full overflow-hidden shrink-0"><img alt="" class="w-full h-full object-cover" src="이미지/reviews/all_smart_10.jpg"></div>
-<p class="text-[10px] text-primary truncate">鎮静ガムテスージングジェル 300ml</p>
+<p class="text-[10px] text-primary truncate">鎮静カジメスージングジェル 300ml</p>
 </div>
 </div>
 </div>
@@ -759,12 +791,12 @@ more
 </div>
 </div>
 <!-- Sales / Platforms Section -->
-<section class="py-24 bg-white opacity-0 fade-in">
+<section class="py-24 bg-white opacity-0 fade-in" id="instagram">
 <div class="max-w-container-max mx-auto px-margin-mobile text-center">
 <h2 class="font-headline-lg text-lg md:text-headline-lg text-primary mb-12"><p class="">Judaanの最新情報が気になる方は</p></h2>
 <a class="inline-flex items-center gap-3 mb-10 group" href="https://www.instagram.com/judaan_global?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
 <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/30 shrink-0">
-<img alt="Judaan Global Instagram" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtGnbp-_P9A1TBm-kq5wbDub_Lrv1IPOSJw0iWj9nKUNAaC0DfLxbOcvhZ1MIWyNMvkTULOCCTDdtOqvPksIn4Lqtui76JUGkS1acKBOTIk3sxQqkNKmEFc1NxnEZriHjmzBa3Q4OyiIbAXxmtPEc3saxlRSFwC-RXzw3k2tlPOy0pFCPNjVum-iErabqA4cq8UdrhBVwTb8F8nFne28DW5Wyf797JfjdI9Jl9Isn8CIg4n3_Bcj-sQR55kxJmc9jTtw">
+<img alt="Judaan Global Instagram" class="w-full h-full object-cover" src="이미지/instagram/judaan_profile.jpg">
 </div>
 <div class="text-left">
 <p class="font-bold text-on-surface group-hover:text-primary transition-colors">@judaan_global</p>
@@ -806,15 +838,100 @@ Follow on Instagram
 </div>
 <div class="space-y-6">
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">OUR STORY</h2>
-<h3 class="font-headline-md text-on-surface">父の愛から始まった、<br>家族のためのスキンケア。</h3>
-<div class="space-y-4 text-on-surface-variant leading-loose">
+<h3 class="font-headline-md text-[15px] md:text-headline-md text-on-surface">父の愛から始まった、家族のためのスキンケア。</h3>
+<div class="space-y-4 text-on-surface-variant leading-loose text-justify">
 <p class="">Judaanは、一人の父親の切実な想いから誕生しました。敏感な肌を持つ子供のために、本当に安心して使えるものを。その答えを、私たちは済州島の清らかな海に見出しました。</p>
-<p class="">海の生命力を宿した「ガムテ（カジメ）」を主成分に、過剰な装飾を削ぎ落とし、肌が本当に必要とする成分だけを誠実に詰め込んでいます。</p>
+<p class="">海の生命力を宿した「カジメ」を主成分に、過剰な装飾を削ぎ落とし、肌が本当に必要とする成分だけを誠実に詰め込んでいます。</p>
 <p class="">私たちは単に製品を作るだけでなく、持続可能な循環を目指しています。収益の一部は、支援を必要とする家族へと還元され、真心が繋がっていく社会を願っています。</p>
 </div>
 <div class="pt-4">
 <div class="h-[1px] w-20 bg-primary mb-4"></div>
-<p class="font-label-md text-primary tracking-widest uppercase">Sincere Wellness for Family</p>
+<p class="font-label-md text-primary text-[11px] tracking-wide md:text-[14px] md:tracking-widest uppercase">Comfort begins with a gentle touch</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 bg-white px-margin-mobile opacity-0 fade-in" id="faq">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">FAQ</h2>
+<p class="text-on-surface-variant">よくあるご質問</p>
+</div>
+<!-- Group: 全製品共通 -->
+<div class="mb-10">
+<h3 class="font-headline-md text-[20px] md:text-headline-md text-on-surface mb-4 pb-3 border-b border-outline-variant break-keep">全製品共通</h3>
+<div class="space-y-3">
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>新生児から使用できますか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">3製品すべて、生後36か月未満の乳幼児を対象とした皮膚安全性テスト、敏感肌刺激テスト、ハイポアレルジェニックテストを完了しています。乳幼児を含むすべての年齢の方が一緒にお使いいただける低刺激処方です。</div>
+</details>
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>香料は含まれていますか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">3製品すべて、皮膚有害成分フリーテスト（ローション・カーミングジェル12種、フォーミングウォッシュ11種）および重金属12種の不検出テストを完了しており、合成着色料は使用していません。</div>
+</details>
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>共通して含まれる主な成分は何ですか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">済州産カジメエキスを高濃度で配合し、肌の保湿を助けます。ローション50,000ppm、カーミングジェル45,000ppm、フォーミングウォッシュ20,000ppmを配合しています。3製品すべてに、段階的にうるおいを重ねる3STEP保湿レイヤー（加水分解成分3種）を共通で配合しています。</div>
+</details>
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>敏感肌でも使えますか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">肌本来のpHに近い弱酸性処方で設計し、デリケートな肌の水分・油分バランスをやさしく整えます。</div>
+</details>
+</div>
+</div>
+<!-- Group: ハードバリア 保湿ローション -->
+<div class="mb-10">
+<h3 class="font-headline-md text-[20px] md:text-headline-md text-on-surface mb-4 pb-3 border-b border-outline-variant break-keep">ハードバリア 保湿ローション<span class="text-outline text-sm font-normal ml-1">（300ml）</span></h3>
+<div class="space-y-3">
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>保湿はどのくらい持続しますか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">自然由来のECOセラミドを配合し、最大100時間うるおいが持続するデイリー保湿ケアです。100時間保湿持続力テストを完了しています。</div>
+</details>
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>乾燥によるかゆみにも使えますか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">乾燥による一時的なかゆみの緩和テストを完了しています。済州産カジメエキスが、乾燥によるかゆみをすばやくやわらげます。</div>
+</details>
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>べたつきませんか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">オリーブ由来の乳化剤と天然由来オイルが、べたつきなくなめらかに浸透し、うるおいと保湿を同時に満たします。</div>
+</details>
+</div>
+</div>
+<!-- Group: モイスト ヒーリング カーミングジェル -->
+<div class="mb-10">
+<h3 class="font-headline-md text-[20px] md:text-headline-md text-on-surface mb-4 pb-3 border-b border-outline-variant break-keep">モイスト ヒーリング カーミングジェル<span class="text-outline text-sm font-normal ml-1">（300ml）</span></h3>
+<div class="space-y-3">
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>どんな肌状態のときに使うとよいですか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">外部刺激でほてり、敏感になった肌に清涼感を与え、すばやく落ち着かせる水分クーリングケアです。外部刺激（熱）による肌の鎮静緩和テストを完了しています。</div>
+</details>
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>使用感は重くありませんか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">みずみずしいジェルテクスチャーで、塗った瞬間にうるおいがはじけるように爽やかに浸透し、べたつきやヨレなく仕上がります。</div>
+</details>
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>ジェル1つでいろいろ使えますか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">冷蔵保管後にコットンに含ませてクーリングマスクとして、日差しでほてった体にはボディローションとしてもお使いいただけるマルチケアが可能です。</div>
+</details>
+</div>
+</div>
+<!-- Group: ブリージング オールインワン フォーミングウォッシュ -->
+<div>
+<h3 class="font-headline-md text-[20px] md:text-headline-md text-on-surface mb-4 pb-3 border-b border-outline-variant break-keep">ブリージング オールインワン フォーミングウォッシュ<span class="text-outline text-sm font-normal ml-1">（500ml）</span></h3>
+<div class="space-y-3">
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>洗顔後、肌がつっぱりませんか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">洗浄後の肌の保湿および維持テストを完了しています。豊富な保湿成分が、洗顔後も乾燥なくうるおいを保ちます。</div>
+</details>
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>どこまで洗えますか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">お子さまにはシャンプーからおしり洗浄、ハンドウォッシュまで、大人の方にはハンドウォッシュから二度洗いまで、1つで頭から足先までお使いいただけるオールインワンクレンザーです。</div>
+</details>
+<details class="group border border-primary/10 rounded-xl bg-[#e8f1e3] overflow-hidden">
+<summary class="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer select-none font-headline-md text-[15px] leading-snug text-on-surface"><span>洗浄成分はやさしいですか？</span><span class="material-symbols-outlined text-primary shrink-0 faq-chevron">expand_more</span></summary>
+<div class="px-6 pb-5 text-sm text-on-surface-variant leading-relaxed">ココナッツ由来のアミノ酸系洗浄成分（ココイルグルタミン酸Na）を使用し、眼刺激テストを完了しています。ヒアルロン酸3種で段階的な水分ケアも加えました。</div>
+</details>
 </div>
 </div>
 </div>
@@ -827,7 +944,7 @@ Follow on Instagram
 <div class="flex items-center gap-3">
 <div class="h-10 w-auto flex items-center"><img alt="Judaan House Icon" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtGnbp-_P9A1TBm-kq5wbDub_Lrv1IPOSJw0iWj9nKUNAaC0DfLxbOcvhZ1MIWyNMvkTULOCCTDdtOqvPksIn4Lqtui76JUGkS1acKBOTIk3sxQqkNKmEFc1NxnEZriHjmzBa3Q4OyiIbAXxmtPEc3saxlRSFwC-RXzw3k2tlPOy0pFCPNjVum-iErabqA4cq8UdrhBVwTb8F8nFne28DW5Wyf797JfjdI9Jl9Isn8CIg4n3_Bcj-sQR55kxJmc9jTtw"><img alt="Judaan Logo" class="h-6 w-auto object-contain ml-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJcbc0QLvQzG9JQup94J4Ap4jOFy2zw5YhbxUZQKg0HT04ezhBzWeyQNAqjUfs4qD8GB2EzCv16nOoPGF0I6tvu5m_0VJhZn-i7-m-cH8ImH3MsqJ294SoaPja_QimOFCJCKZOlNoGGF71qJ3dU7HfosDwWFxHT7Gczhcy2Z-pByeDkGj_yY_FOn-emhXDU6hE9RxB1t9AfILRGDyFsNkg977pwSd5Iu44SVVe0UzNLdRzXKYLjEc0tV783wvCdukYmw"></div>
 </div>
-<p class="text-on-surface-variant text-sm leading-loose text-xs md:text-sm">
+<p class="text-on-surface-variant leading-loose text-xs md:text-[13px]">
                     済州の海と父の真心が生んだプレミアムスキンケア。<br>
                     私たちは家族の笑顔と、持続可能な未来を守り続けます。
                 </p>
@@ -839,7 +956,7 @@ Follow on Instagram
 <span class="material-symbols-outlined text-primary text-lg">call</span>
 <span class="font-headline-md text-primary">+82-1551-0513</span>
 </div>
-<div class="text-xs text-on-surface-variant flex flex-wrap gap-x-4">
+<div class="text-xs text-on-surface-variant flex flex-col gap-y-0.5">
 <span class="">Hours: 10:00 AM – 4:00 PM</span>
 <span class="">Lunch: 11:00 AM – 12:00 PM</span>
 </div>
@@ -852,7 +969,7 @@ Follow on Instagram
 <div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">Corporate:</span><span class="">IAN GLOBAL | CEO: CHOI KYURI</span></div>
 <div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">Business No:</span><span class="">6738702980</span></div>
 <div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">E-commerce:</span><span class="">2025-용인수ジ-2468号</span></div>
-<div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">Address:</span><span class="">Suite 807-808, 37 Poeun-daero 59beon-gil, Suji-gu, Yongin-si, Gyeonggi-do, Republic of Korea</span></div>
+<div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">Address:</span><span class="text-[10px]">Suite 807-808, 37 Poeun-daero 59beon-gil,<br>Suji-gu, Yongin-si, Gyeonggi-do, Republic of Korea</span></div>
 <div class="flex gap-2"><span class="font-bold min-w-[80px] shrink-0">Privacy:</span><span class="">CHOI KYURI (ianglobal@ianglobal.im)</span></div>
 </div>
 </div></div>
@@ -910,18 +1027,65 @@ Follow on Instagram
         });
 
         // Review carousel active indicator logic
-        const carousel = document.querySelector('.snap-x');
-        const dots = document.querySelectorAll('.flex.justify-center.gap-2.mt-4 > div');
+        const carousel = document.getElementById('reviewTrack');
+        const dots = document.querySelectorAll('.flex.justify-center.gap-2.mt-4 > button');
+        const reviewPrev = document.getElementById('reviewPrev');
+        const reviewNext = document.getElementById('reviewNext');
         if (carousel && dots.length > 0) {
-            carousel.addEventListener('scroll', () => {
-                const scrollLeft = carousel.scrollLeft;
-                const width = carousel.offsetWidth;
-                const index = Math.round(scrollLeft / width);
+            const cards = Array.from(carousel.children);
+            const cardsPerPage = 3;
+            const isDesktop = () => window.matchMedia('(min-width: 768px)').matches;
+            let currentPageIndex = 0;
+
+            const maxScroll = () => carousel.scrollWidth - carousel.offsetWidth;
+            const cardOffsets = () => cards.map(card => card.offsetLeft - cards[0].offsetLeft);
+            const pageTarget = (page) => {
+                const offsets = cardOffsets();
+                const clampedPage = Math.max(0, Math.min(page, dots.length - 1));
+                const cardIndex = Math.min(clampedPage * cardsPerPage, cards.length - 1);
+                return Math.min(offsets[cardIndex], maxScroll());
+            };
+            const updateDots = (page) => {
                 dots.forEach((dot, i) => {
-                    dot.classList.toggle('bg-primary/40', i === index);
-                    dot.classList.toggle('bg-primary/10', i !== index);
+                    dot.classList.toggle('bg-primary/40', i === page);
+                    dot.classList.toggle('bg-primary/10', i !== page);
                 });
+            };
+            const currentPageFromScroll = () => {
+                let closest = 0;
+                let minDiff = Infinity;
+                for (let p = 0; p < dots.length; p++) {
+                    const diff = Math.abs(pageTarget(p) - carousel.scrollLeft);
+                    if (diff < minDiff) { minDiff = diff; closest = p; }
+                }
+                return closest;
+            };
+            const goToPage = (page) => {
+                const clamped = Math.max(0, Math.min(page, dots.length - 1));
+                currentPageIndex = clamped;
+                if (isDesktop()) {
+                    carousel.style.transform = `translateX(-${pageTarget(clamped)}px)`;
+                    updateDots(clamped);
+                } else {
+                    carousel.style.transform = '';
+                    carousel.scrollTo({ left: pageTarget(clamped), behavior: 'auto' });
+                }
+            };
+            carousel.addEventListener('scroll', () => {
+                if (isDesktop()) return;
+                updateDots(currentPageFromScroll());
             });
+            dots.forEach((dot, i) => dot.addEventListener('click', () => goToPage(i)));
+            if (reviewPrev) reviewPrev.addEventListener('click', () => goToPage(currentPageIndex - 1));
+            if (reviewNext) reviewNext.addEventListener('click', () => goToPage(currentPageIndex + 1));
+            window.addEventListener('resize', () => {
+                if (isDesktop()) {
+                    carousel.style.transform = `translateX(-${pageTarget(currentPageIndex)}px)`;
+                } else {
+                    carousel.style.transform = '';
+                }
+            });
+            updateDots(0);
         }
 
         // All Reviews modal open/close
@@ -943,5 +1107,54 @@ Follow on Instagram
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeReviewsModal();
         });
+
+        // Logo click -> scroll to top
+        const logoHome = document.getElementById('logoHome');
+        if (logoHome) {
+            logoHome.addEventListener('click', () => {
+                window.scrollTo(0, 0);
+                document.documentElement.scrollTop = 0;
+                document.body.scrollTop = 0;
+            });
+        }
+
+        // Header menu dropdown + smooth scroll with header offset
+        const menuBtn = document.getElementById('menuBtn');
+        const menuDropdown = document.getElementById('menuDropdown');
+        if (menuBtn && menuDropdown) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menuDropdown.classList.toggle('hidden');
+            });
+            document.addEventListener('click', () => menuDropdown.classList.add('hidden'));
+            menuDropdown.addEventListener('click', (e) => e.stopPropagation());
+            menuDropdown.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = link.getAttribute('href').slice(1);
+                    menuDropdown.classList.add('hidden');
+                    const scrollTo = (y) => {
+                        const top = Math.max(0, Math.round(y));
+                        window.scrollTo(0, top);
+                        document.documentElement.scrollTop = top;
+                        document.body.scrollTop = top;
+                    };
+                    if (id === 'top') {
+                        scrollTo(0);
+                        return;
+                    }
+                    if (id === 'bottom') {
+                        scrollTo(document.body.scrollHeight);
+                        return;
+                    }
+                    const target = document.getElementById(id);
+                    if (target) {
+                        const header = document.querySelector('header');
+                        const offset = header ? header.offsetHeight : 0;
+                        scrollTo(target.getBoundingClientRect().top + window.scrollY - offset);
+                    }
+                });
+            });
+        }
     </script>
 </body></html>
